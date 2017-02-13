@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="600.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.InscrisController">
+   <children>
+      <JFXTextField fx:id="Tuser" focusColor="#52aea2" labelFloat="true" layoutX="35.0" layoutY="107.0" promptText="UserName" />
+      <JFXTextField fx:id="Tnom" focusColor="#52aea2" labelFloat="true" layoutX="35.0" layoutY="210.0" promptText="Nom" />
+      <JFXTextField fx:id="Tprenom" focusColor="#52aea2" labelFloat="true" layoutX="35.0" layoutY="261.0" promptText="Prenom" />
+      <JFXTextField fx:id="Tadd" focusColor="#52aea2" labelFloat="true" layoutX="35.0" layoutY="304.0" promptText="Adresse" />
+      <JFXTextField fx:id="tmail" focusColor="#52aea2" labelFloat="true" layoutX="35.0" layoutY="358.0" promptText="E-mail" />
+      <Label layoutX="272.0" layoutY="19.0" text="Inscription" textFill="#0fc8e1">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXPasswordField fx:id="Tpass" focusColor="#52aea2" labelFloat="true" layoutX="35.0" layoutY="156.0" promptText="Password" />
+      <JFXButton fx:id="valider" buttonType="RAISED" layoutX="300.0" layoutY="414.0" onAction="#handleButtonAction" style="-fx-background-color: orange;" text="Valider">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="annuler" buttonType="RAISED" layoutX="410.0" layoutY="414.0" onAction="#RsesetButtonAction" style="-fx-background-color: orange;" text="Annuler">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

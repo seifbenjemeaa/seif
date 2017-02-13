@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="621.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.ProfilController">
+   <children>
+      <TableView fx:id="table" prefHeight="438.0" prefWidth="621.0" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="Username" prefWidth="75.0" text="UserName" />
+          <TableColumn fx:id="password" prefWidth="75.0" text="Password" />
+            <TableColumn fx:id="Nom" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="Prenom" prefWidth="76.0" text="Prenom" />
+            <TableColumn fx:id="Adresse" prefWidth="74.0" text="Adresse" />
+            <TableColumn fx:id="Email" prefWidth="198.0" text="Email" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="lister" buttonType="RAISED" layoutX="339.0" layoutY="458.0" onAction="#handleButtonAction" onDragDetected="#handleButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange;" text="Lister">
+         <font>
+            <Font size="16.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="TUsername" focusColor="#52aea2" labelFloat="true" layoutX="28.0" layoutY="459.0" promptText="UserName" />
+      <JFXButton buttonType="RAISED" layoutX="213.0" layoutY="459.0" onAction="#DeleteButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange;" text="Supprimer">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
