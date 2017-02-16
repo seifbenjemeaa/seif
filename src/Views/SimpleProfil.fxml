@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -13,27 +14,27 @@
         <URL value="@simpleprofil.css" />
     </stylesheets>
    <children>
-      <Label fx:id="Luser" layoutX="154.0" layoutY="100.0" prefHeight="17.0" prefWidth="68.0" text="sawawa">
+      <Label fx:id="Luser" layoutX="154.0" layoutY="100.0" prefHeight="22.0" prefWidth="105.0" text="sawawa">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lpass" layoutX="157.0" layoutY="149.0" prefHeight="17.0" prefWidth="52.0" text="Helwawa">
+      <Label fx:id="Lpass" layoutX="157.0" layoutY="149.0" prefHeight="22.0" prefWidth="105.0" text="Helwawa">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lnom" layoutX="158.0" layoutY="190.0" text="wawasa">
+      <Label fx:id="Lnom" layoutX="158.0" layoutY="190.0" prefHeight="22.0" prefWidth="99.0" text="wawasa">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lprenom" layoutX="160.0" layoutY="229.0" text="wawawa">
+      <Label fx:id="Lprenom" layoutX="160.0" layoutY="229.0" prefHeight="22.0" prefWidth="105.0" text="wawawa">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Ladresse" layoutX="160.0" layoutY="274.0" text="wawawa">
+      <Label fx:id="Ladresse" layoutX="160.0" layoutY="274.0" prefHeight="22.0" prefWidth="105.0" text="wawawa">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lemail" layoutX="160.0" layoutY="320.0" text="wawawa">
+      <Label fx:id="Lemail" layoutX="160.0" layoutY="320.0" prefHeight="22.0" prefWidth="169.0" text="wawawa">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
@@ -72,5 +73,10 @@
             <Font size="19.0" />
          </font>
       </Label>
+      <JFXButton fx:id="Modification" buttonType="RAISED" layoutX="450.0" layoutY="354.0" onAction="#handleButtonAction" style="-fx-background-color: orange;" text="Modification">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

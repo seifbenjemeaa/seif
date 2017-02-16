@@ -9,7 +9,7 @@ package Entites;
  *
  * @author Krist
  */
-public class Admin {
+public class Admin extends Session {
     
     private String Username;
     private String password;

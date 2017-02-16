@@ -25,6 +25,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -62,23 +64,27 @@ public class ConnexionController implements Initializable {
          User R = new User(Username, Password, "", "", "", "");
         UserMetier RM= new UserMetier();
      boolean vr=   RM.Authentification(R);
-    Notifications not = Notifications.create()
-                .text("Bienvenue chez Host&Guest "+Username)
-                .title("Authentification")
-                .graphic(null)
-            .darkStyle()
-                .position(Pos.TOP_RIGHT)
-                .hideAfter(Duration.seconds(3));
+  
+    
+    
+      NotificationType type = NotificationType.SUCCESS;
+
+        TrayNotification tray = new TrayNotification("Authentification", "Bienvenue chez Host&Guest "+Username, NotificationType.SUCCESS);
+        
+        tray.setNotificationType(type);
+        
+        
+        
+         
+
+        TrayNotification trayFail= new TrayNotification("Authentification", "Username ou mot de passe incorrecte", NotificationType.WARNING);
+        
        
-         Notifications notif = Notifications.create()
-                .text("Username ou mot de passe incorrecte")
-                .title("Authentification")
-                .graphic(null)
-                 .darkStyle()
-                .position(Pos.TOP_RIGHT)
-                .hideAfter(Duration.seconds(3));
+       
+       
+       
            if (vr==true)      
-          { not.showInformation();
+          { tray.showAndDismiss(Duration.seconds(2));
         idbase=RM.getID(Username);
         R.setId(idbase);
         R.setPseudo(Username);
@@ -96,7 +102,7 @@ public class ConnexionController implements Initializable {
                   }
            else
                
-           {notif.showError();}
+           {trayFail.showAndDismiss(Duration.seconds(3));}
            
            System.out.println(R.getId());
          
@@ -125,7 +131,7 @@ public class ConnexionController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+      
     }    
     
 }

@@ -5,20 +5,31 @@
  */
 package Views;
 
+import Entites.Action;
 import Entites.User;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -70,34 +81,61 @@ public class InscrisController implements Initializable {
     
     
      @FXML
-    private void handleButtonAction(ActionEvent event) {
-      
+    private void handleButtonAction(ActionEvent event) throws IOException {
+      boolean vr = true;
+      UserMetier RM = new  UserMetier();
        String Username=Tuser.getText();
         String password=Tpass.getText();
         String Adresse=Tadd.getText();
         String Nom=Tnom.getText();
         String Prenom=Tprenom.getText();
           String Email=tmail.getText();
-         User R = new User(Username, password, Nom, Prenom, Adresse, Email);
-         UserMetier RM= new UserMetier();
-         RM.InsertUser(R);
-        Notifications not = Notifications.create()
-                .text("Inscription réussi")
-                .title("Inscription")
-                .graphic(null)
-                .position(Pos.TOP_RIGHT)
-                .darkStyle()
-                .hideAfter(Duration.seconds(3));
-                
-        not.showConfirm();
-          Tuser.setText("");
-       Tpass.setText("");
-       Tadd.setText("");
-      Tnom.setText("");
-        Tprenom.setText("");
-     tmail.setText("");
-       
         
+          if (Username.equals("")|| password.equals("") || Adresse.equals("") || Nom.equals("")|| Prenom.equals("") || Email.equals("") || RM.SearchUser(Username) )
+          {
+              vr=false;
+          }
+         
+          if ( vr==true)
+          {
+         User R = new User(Username, password, Nom, Prenom, Adresse, Email);
+        
+         RM.InsertUser(R);
+     
+
+        TrayNotification trayS = new TrayNotification("Inscription", "Inscription réussi Veuillez vous connectez", NotificationType.SUCCESS);
+        
+   
+        trayS.showAndDismiss(Duration.seconds(2));
+                
+       
+       
+       
+     
+     Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
+         
+        Scene scene = new Scene(root);
+        
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();  
+        
+        app_stage.setScene(scene);
+        
+        app_stage.show();
+         
+         
+         
+       
+                
+          }
+          else
+          {
+               
+
+        TrayNotification tray = new TrayNotification("Inscription", "tout les champs sont obligatoire ou bien le UserName est déja pris", NotificationType.WARNING);
+        tray.setAnimationType(AnimationType.POPUP);
+      
+        tray.showAndDismiss(Duration.seconds(3));
+          }
         
     }
     

@@ -21,12 +21,7 @@
             <TableColumn fx:id="Email" prefWidth="198.0" text="Email" />
         </columns>
       </TableView>
-      <JFXButton fx:id="lister" buttonType="RAISED" layoutX="339.0" layoutY="458.0" onAction="#handleButtonAction" onDragDetected="#handleButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange;" text="Lister">
-         <font>
-            <Font size="16.0" />
-         </font></JFXButton>
-      <JFXTextField fx:id="TUsername" focusColor="#52aea2" labelFloat="true" layoutX="28.0" layoutY="459.0" promptText="UserName" />
-      <JFXButton buttonType="RAISED" layoutX="213.0" layoutY="459.0" onAction="#DeleteButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange;" text="Supprimer">
+      <JFXButton buttonType="RAISED" layoutX="239.0" layoutY="462.0" onAction="#DeleteButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Supprimer">
          <font>
             <Font size="16.0" />
          </font>

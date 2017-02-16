@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.NotificationsController">
+   <children>
+      <TableView fx:id="table" layoutX="-1.0" prefHeight="384.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="id_u" prefWidth="75.0" text="ID_User" />
+            <TableColumn fx:id="username" prefWidth="75.0" text="UserName" />
+            <TableColumn fx:id="date" prefWidth="78.0" text="Date" />
+            <TableColumn fx:id="desc" prefWidth="292.0" text="Description" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="vider" buttonType="RAISED" layoutX="504.0" layoutY="437.0" onAction="#DeleteButtonAction" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Vider">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

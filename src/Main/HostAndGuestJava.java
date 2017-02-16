@@ -5,16 +5,22 @@
  */
 package Main;
 
-
 import Entites.User;
 
 import Service.UserMetier;
 import ConnexionBD.ConnexionBase;
+import Entites.Action;
 import Entites.Admin;
 import Entites.Session;
+import Service.ActionMetier;
 import Service.AdminMetier;
 import java.sql.Connection;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import javafx.util.Duration;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  *
@@ -26,22 +32,17 @@ public class HostAndGuestJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     
-    User R = new User("Ahmed", "21662847AIUE", "New User", "Ahmed", "Tunis","Kristou993@gmail.com");
-    UserMetier RM= new UserMetier();
-    User R2=new User();
-     
-      //ConnexionBase.getInstance();
-    
-      /*int i=2;
-      User R3 = new User();
-      R3=RM.SearchUser(i);
-     String S= R3.toString();
-     System.out.println(S);*/
-    // RM.InsertUser(R);
-      
+        Date d = new Date(1993, 12, 10);
+        LocalDate l = LocalDate.now();
+        Action A = new Action("HELLO", l, 63, "SubZero");
+        ActionMetier AA = new ActionMetier();
+    // AA.InsertAction(A);
+      // AA.DeleteAction();
+      ArrayList<Action> ListR= new ArrayList<>();
+     ListR= AA.ListAction();
+     for ( int i=0;i<ListR.size();i++){
+         System.out.println(ListR.get(i).toString());}
 
-   
     }
-    
+
 }

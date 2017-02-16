@@ -28,6 +28,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -91,46 +93,51 @@ public class ProfilController implements Initializable {
     
      @FXML
     private void DeleteButtonAction(ActionEvent event) {
-       boolean vr;
+    
+       User R = new User();
+       R = table.getSelectionModel().getSelectedItem();
         
-    String user= TUsername.getText();
+   
     
     UserMetier RM = new UserMetier();
   
-   vr=RM.SearchUser(user);
+    
+    
+   
    
     
    
     
     
-     if (vr==true)
-      {
-            User R= new User(user, "", "", "", "", "");
+    
+           
     RM.DeleteUser(R);
-        Notifications noterr = Notifications.create()
-                .text("Suppression succès")
-                .title("Suppression")
-                .graphic(null)
-                .position(Pos.TOP_RIGHT)
-                .hideAfter(Duration.seconds(3));
-                
-        noterr.showConfirm();
+    
+    
+    
+        TrayNotification trayS = new TrayNotification("Suppression", "Le client "+R.getUsername()+" a été supprimé", NotificationType.SUCCESS);
         
-    }  
-     else
-     {
-          Notifications noterr = Notifications.create()
-                .text("UserName invalide")
-                .title("Suppression")
-                .graphic(null)
-                .position(Pos.TOP_RIGHT)
-                .hideAfter(Duration.seconds(3));
-                
-        noterr.showWarning();
-     }
-     
-     TUsername.setText("");
    
+        trayS.showAndDismiss(Duration.seconds(2));
+       
+      
+     ArrayList<User>LST = RM.ListUser();
+     
+     
+        ObservableList<User> lst = FXCollections.observableArrayList();
+        for ( int i=0;i<LST.size();i++)
+        {  lst.add(LST.get(i));
+              }
+        
+          Prenom.setCellValueFactory(new PropertyValueFactory<User,String>("Prenom"));
+        Nom.setCellValueFactory(new PropertyValueFactory<User,String>("Nom"));
+        Adresse.setCellValueFactory(new PropertyValueFactory<User,String>("Adresse"));
+        Email.setCellValueFactory(new PropertyValueFactory<User,String>("Email"));
+        password.setCellValueFactory(new PropertyValueFactory<User,String>("password"));
+        Username.setCellValueFactory(new PropertyValueFactory<User,String>("Username"));
+        table.setItems(lst);
+     
+    
   
     }
     

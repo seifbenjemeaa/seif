@@ -258,6 +258,24 @@ Connection con= ConnexionBase.getInstance();
         return R;
     }
 
+    @Override
+    public void SetPassword(String password,int id) {
+         
+        try
+        {
+             Statement  st=  (Statement) con.createStatement();
+             String sql="UPDATE user Set password='"+password+"' where "+id+"=id";
+             st.executeUpdate(sql);
+             
+            
+            
+        }
+       catch (Exception e) {
+      e.printStackTrace();
+    }
+        System.out.println("Mot de passe modifié");
+    }
+
   
     
 }
