@@ -13,6 +13,8 @@ import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,6 +31,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.animation.TranslateTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.image.ImageView;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.TextFields;
@@ -126,7 +130,7 @@ public class ConnexionController implements Initializable {
                
            {trayFail.showAndDismiss(Duration.seconds(3));}
            
-      
+           
          
              }
     
@@ -134,7 +138,7 @@ public class ConnexionController implements Initializable {
       @FXML
     private void SwitchButtonAction(ActionEvent event) throws IOException {
       
-       Parent root = FXMLLoader.load(getClass().getResource("Inscris.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("PasswordMail.fxml"));
          
         Scene scene = new Scene(root);
         
@@ -196,6 +200,9 @@ public class ConnexionController implements Initializable {
         TRViewpass.setByY(140);
         TRViewpass.setByX(0);
         TRViewpass.play();
+        
+        
+      
        
     }    
     

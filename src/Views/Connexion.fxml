@@ -20,11 +20,11 @@
          <font>
             <Font size="15.0" />
          </font></JFXPasswordField>
-      <JFXButton fx:id="Connexion" buttonType="RAISED" layoutY="278.0" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Se connecter">
+      <JFXButton fx:id="Connexion" buttonType="RAISED" layoutY="278.0" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Connexion">
          <font>
             <Font size="18.0" />
          </font></JFXButton>
-      <JFXButton fx:id="inscription" buttonType="RAISED" layoutX="399.0" layoutY="278.0" onAction="#SwitchButtonAction" style="-fx-background-color: orange; -fx-background-radius: 10;" text="S'inscrire">
+      <JFXButton fx:id="inscription" buttonType="RAISED" layoutX="399.0" layoutY="278.0" onAction="#SwitchButtonAction" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Forget Password ?">
          <font>
             <Font size="18.0" />
          </font></JFXButton>

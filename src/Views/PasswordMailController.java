@@ -32,6 +32,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -107,6 +108,12 @@ public class PasswordMailController implements Initializable {
                 
                 Mail.setText("");
                 
+                  TrayNotification trayfail = new TrayNotification("Email", "Un code a été envoyé a votre adresse mail", NotificationType.INFORMATION);
+                       trayfail.setAnimationType(AnimationType.SLIDE);
+
+   
+        trayfail.showAndDismiss(Duration.seconds(3));
+                
 		}
         
           @FXML
@@ -128,7 +135,8 @@ public class PasswordMailController implements Initializable {
        {
             TrayNotification trayfail = new TrayNotification("Validation Code", "Code incorrect", NotificationType.WARNING);
         
-   
+                          trayfail.setAnimationType(AnimationType.POPUP);
+
         trayfail.showAndDismiss(Duration.seconds(2));
        }
     }

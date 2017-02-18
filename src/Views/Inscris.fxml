@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="600.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.InscrisController">
    <children>
-      <JFXTextField fx:id="Tuser" focusColor="#52aea2" labelFloat="true" layoutX="76.0" layoutY="106.0" onKeyReleased="#ErreurButtonAction" promptText="UserName" />
+      <JFXTextField fx:id="Tuser" focusColor="#52aea2" labelFloat="true" layoutX="76.0" layoutY="106.0" promptText="UserName" />
       <JFXTextField fx:id="Tnom" focusColor="#52aea2" labelFloat="true" layoutX="76.0" layoutY="210.0" promptText="Nom" />
       <JFXTextField fx:id="Tprenom" focusColor="#52aea2" labelFloat="true" layoutX="76.0" layoutY="262.0" promptText="Prenom" />
       <JFXTextField fx:id="Tadd" focusColor="#52aea2" labelFloat="true" layoutX="76.0" layoutY="304.0" promptText="Adresse" />
