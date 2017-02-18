@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -14,69 +15,71 @@
         <URL value="@simpleprofil.css" />
     </stylesheets>
    <children>
-      <Label fx:id="Luser" layoutX="154.0" layoutY="100.0" prefHeight="22.0" prefWidth="105.0" text="sawawa">
+      <Label fx:id="Luser" layoutX="116.0" layoutY="101.0" prefHeight="22.0" prefWidth="105.0">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lpass" layoutX="157.0" layoutY="149.0" prefHeight="22.0" prefWidth="105.0" text="Helwawa">
+      <Label fx:id="Lpass" layoutX="119.0" layoutY="149.0" prefHeight="22.0" prefWidth="105.0">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lnom" layoutX="158.0" layoutY="190.0" prefHeight="22.0" prefWidth="99.0" text="wawasa">
+      <Label fx:id="Lnom" layoutX="119.0" layoutY="202.0" prefHeight="22.0" prefWidth="99.0">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lprenom" layoutX="160.0" layoutY="229.0" prefHeight="22.0" prefWidth="105.0" text="wawawa">
+      <Label fx:id="Lprenom" layoutX="119.0" layoutY="241.0" prefHeight="22.0" prefWidth="105.0">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Ladresse" layoutX="160.0" layoutY="274.0" prefHeight="22.0" prefWidth="105.0" text="wawawa">
+      <Label fx:id="Ladresse" layoutX="116.0" layoutY="285.0" prefHeight="22.0" prefWidth="105.0">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label fx:id="Lemail" layoutX="160.0" layoutY="320.0" prefHeight="22.0" prefWidth="169.0" text="wawawa">
+      <Label fx:id="Lemail" layoutX="125.0" layoutY="331.0" prefHeight="22.0" prefWidth="169.0">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Label>
-      <Label layoutX="246.0" layoutY="29.0" text="Profil Utilisateur" textFill="#0fc8e1">
+      <Label layoutX="260.0" layoutY="29.0" text="Profil Utilisateur" textFill="#0fc8e1">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="96.0" text="UserName" textFill="#0fc8e1">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="143.0" text="Password" textFill="#0fc8e1">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="183.0" text="Nom" textFill="#0fc8e1">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="223.0" text="Prenom" textFill="#0fc8e1">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="268.0" text="Adresse" textFill="#0fc8e1">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="314.0" text="Email" textFill="#0fc8e1">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="Modification" buttonType="RAISED" layoutX="450.0" layoutY="354.0" onAction="#handleButtonAction" style="-fx-background-color: orange;" text="Modification">
+      <JFXButton fx:id="Modification" buttonType="RAISED" layoutX="450.0" layoutY="354.0" onAction="#handleButtonAction" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Modification">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
+      <ImageView fx:id="imagp" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="45.0" layoutY="93.0">
+         <image>
+            <Image url="@Images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="36.0" layoutX="45.0" layoutY="146.0">
+         <image>
+            <Image url="@Images/icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="45.0" layoutY="183.0">
+         <image>
+            <Image url="@Images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="45.0" layoutY="233.0">
+         <image>
+            <Image url="@Images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="45.0" layoutY="323.0">
+         <image>
+            <Image url="@Images/email%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="45.0" layoutY="277.0">
+         <image>
+            <Image url="@Images/house.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="260.0" layoutY="93.0" orientation="VERTICAL" prefHeight="200.0" />
    </children>
 </AnchorPane>

@@ -5,14 +5,17 @@
  */
 package Views;
 
+import Entites.Action;
 import Entites.Session;
 import Entites.User;
+import Service.ActionMetier;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,9 +25,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.animation.TranslateTransition;
+import javafx.scene.image.ImageView;
 import org.controlsfx.control.Notifications;
+import org.controlsfx.control.textfield.TextFields;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -51,6 +58,13 @@ public class ConnexionController implements Initializable {
 
     @FXML
     private JFXButton Connexion;
+    
+      @FXML
+    private ImageView imagUser;
+
+    @FXML
+    private ImageView imagePass;
+
     
     
     @FXML
@@ -88,6 +102,14 @@ public class ConnexionController implements Initializable {
         idbase=RM.getID(Username);
         R.setId(idbase);
         R.setPseudo(Username);
+    LocalDate l = LocalDate.now();
+          ActionMetier AA = new ActionMetier();
+         
+         Action A = new Action("Connexion depuis l'application desktop ", l, R.getId(), R.getPseudo());
+         AA.InsertAction(A);
+        
+        
+        
          Parent root = FXMLLoader.load(getClass().getResource("AccueilTeste.fxml"));
          
         Scene scene = new Scene(root);
@@ -131,7 +153,50 @@ public class ConnexionController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+        TranslateTransition tr= new TranslateTransition();
+        tr.setDuration(Duration.seconds(2));
+        tr.setNode(Connexion);
+        tr.setByY(0);
+        tr.setByX(100);
+        tr.play();
+        
+         TranslateTransition trr= new TranslateTransition();
+        trr.setDuration(Duration.seconds(2));
+        trr.setNode(inscription);
+        trr.setByY(0);
+        trr.setByX(-100);
+        trr.play();
+        
+        
+           TranslateTransition trUser= new TranslateTransition();
+        trUser.setDuration(Duration.seconds(2));
+        trUser.setNode(TU);
+        trUser.setByY(120);
+        trUser.setByX(0);
+        trUser.play();
+        
+        
+         TranslateTransition trPass= new TranslateTransition();
+        trPass.setDuration(Duration.seconds(2));
+        trPass.setNode(TP);
+        trPass.setByY(140);
+        trPass.setByX(0);
+        trPass.play();
+        
+          TranslateTransition TrViewUser= new TranslateTransition();
+      TrViewUser  .setDuration(Duration.seconds(2));
+        TrViewUser.setNode(imagUser);
+        TrViewUser.setByY(120);
+        TrViewUser.setByX(0);
+        TrViewUser.play();
+        
+          TranslateTransition TRViewpass= new TranslateTransition();
+        TRViewpass.setDuration(Duration.seconds(2));
+        TRViewpass.setNode(imagePass);
+        TRViewpass.setByY(140);
+        TRViewpass.setByX(0);
+        TRViewpass.play();
+       
     }    
     
 }

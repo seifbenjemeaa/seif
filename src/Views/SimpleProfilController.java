@@ -19,6 +19,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -32,6 +34,9 @@ public class SimpleProfilController implements Initializable {
      * Initializes the controller class.
      */
     
+    
+    @FXML
+    private ImageView imagp;
     
     @FXML
     private Label Luser;
@@ -77,13 +82,19 @@ public class SimpleProfilController implements Initializable {
         int id= R.getId();
         
         UserMetier RM = new UserMetier();
-       R= RM.GetUser(40);
+       R= RM.GetUser(67);
        Luser.setText(R.getUsername());
        Ladresse.setText(R.getAdresse());
        Lnom.setText(R.getNom());
        Lprenom.setText(R.getPrenom());
        Lpass.setText(R.getPassword());
        Lemail.setText(R.getEmail());
+      
+       String S= RM.GetImage("saief");
+     System.out.println(S);
+        Image img = new Image(S, 100, 150, true, true);
+    
+       imagp.setImage(img);
        
     }    
     

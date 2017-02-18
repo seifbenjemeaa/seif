@@ -36,13 +36,11 @@ public class HostAndGuestJava {
         LocalDate l = LocalDate.now();
         Action A = new Action("HELLO", l, 63, "SubZero");
         ActionMetier AA = new ActionMetier();
+        UserMetier RM = new UserMetier();
     // AA.InsertAction(A);
       // AA.DeleteAction();
-      ArrayList<Action> ListR= new ArrayList<>();
-     ListR= AA.ListAction();
-     for ( int i=0;i<ListR.size();i++){
-         System.out.println(ListR.get(i).toString());}
+     String S= RM.GetImage("saief");
+     System.out.println(S);
 
-    }
-
+}
 }

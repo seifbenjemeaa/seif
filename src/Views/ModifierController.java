@@ -18,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import tray.notification.NotificationType;
@@ -54,6 +55,9 @@ public class ModifierController implements Initializable {
 
     @FXML
     private JFXTextField Tnom;
+    
+    
+    
     
     
     
@@ -111,7 +115,15 @@ public class ModifierController implements Initializable {
         
     }
     
-    
+    @FXML
+    private void ResetButtonAction(ActionEvent event) {
+        TUser.setText("");
+       Tadresse.setText("");
+       Tnom.setText("");
+       Tprenom.setText("");
+      
+       Temail.setText("");
+    }
     
     
     

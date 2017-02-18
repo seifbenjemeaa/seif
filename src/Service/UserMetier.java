@@ -276,6 +276,51 @@ Connection con= ConnexionBase.getInstance();
         System.out.println("Mot de passe modifié");
     }
 
+    @Override
+    public void SetImage(String s,String Username) {
+            try
+        {
+             Statement  st=  (Statement) con.createStatement();
+             String sql="UPDATE user Set image='"+s+"'where username = '"+Username+"'";
+             st.executeUpdate(sql);
+            
+            
+        }
+       catch (Exception e) {
+      e.printStackTrace();
+    }
+       
+    }
+
+    @Override
+    public String GetImage(String Username) {
+       
+        
+          
+        String image="";
+           try
+        {
+             Statement  st=  (Statement) con.createStatement();
+            ResultSet rs;
+ 
+            rs = st.executeQuery("SELECT image FROM user WHERE username = '"+Username+"'");
+             while ( rs.next() ) {
+            image=rs.getString(1);
+     
+     }
+            
+            
+        }
+       catch (Exception e) {
+      e.printStackTrace();
+    }
+        
+        
+        return image;
+    }
+      
+    
+
   
     
 }
