@@ -33,8 +33,8 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="392.0" onAction="#uploadImage" prefHeight="75.0" prefWidth="122.0" text="Upload image" textFill="#ebe9e9" />
-      <ImageView fx:id="imgP" fitHeight="122.0" fitWidth="149.0" layoutX="334.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="247.0" onAction="#uploadImage" prefHeight="75.0" prefWidth="122.0" text="Upload image" textFill="#ebe9e9" />
+      <ImageView fx:id="imgP" fitHeight="122.0" fitWidth="149.0" layoutX="293.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="32.0" layoutY="103.0">
          <image>
             <Image url="@Images/user.png" />
@@ -49,7 +49,7 @@
             <Image url="@Images/key.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="48.0" layoutX="86.0" layoutY="405.0">
+      <ImageView fitHeight="50.0" fitWidth="48.0" layoutX="381.0" layoutY="260.0">
          <image>
             <Image url="@Images/image.png" />
          </image>

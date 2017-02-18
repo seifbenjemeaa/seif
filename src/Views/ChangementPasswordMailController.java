@@ -11,6 +11,7 @@ import Service.ActionMetier;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -23,7 +24,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -35,11 +35,13 @@ import tray.notification.TrayNotification;
  *
  * @author Krist
  */
-public class ChangementPasswordController implements Initializable {
+public class ChangementPasswordMailController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
+    
+    
       @FXML
     private JFXPasswordField Tpass;
 
@@ -47,24 +49,22 @@ public class ChangementPasswordController implements Initializable {
     private JFXPasswordField TpassC;
 
     @FXML
-    private JFXButton Annuler;
+    private JFXTextField TUser;
 
     @FXML
-    private JFXButton Modifier;
-    
-       @FXML
-    private ImageView imagM;
-       
-          @FXML
-    private ImageView imagP;
-    
-    
-     @FXML
+    private JFXButton Valider;
+    @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         boolean vr = true;
         String pass= Tpass.getText();
         String passC= TpassC.getText();
-        if (pass.equals(passC)==false)
+        String username= TUser.getText();
+          User R1 = new User();
+
+        UserMetier R = new UserMetier();
+          int id = R.getID(TUser.getText());
+        
+        if (pass.equals(passC)==false )
         {
             vr=false;
             
@@ -74,12 +74,18 @@ public class ChangementPasswordController implements Initializable {
         tray.setAnimationType(AnimationType.POPUP);
         tray.showAndDismiss(Duration.seconds(3));
         }
+        else if (id ==0){
+            TrayNotification tray = new TrayNotification("Modification Password", "Username invalide ", NotificationType.WARNING);
+        
+        tray.setAnimationType(AnimationType.POPUP);
+        tray.showAndDismiss(Duration.seconds(3));
+            
+        }
         else
         {
-        User R1 = new User();
-        int id = R1.getId();
-        UserMetier R = new UserMetier();
-        R.SetPassword(passC,64);
+      
+              
+        R.SetPassword(passC,id);
           TrayNotification tray = new TrayNotification("Modification Password", "Changement effectué ", NotificationType.SUCCESS);
         
         tray.setAnimationType(AnimationType.SLIDE);
@@ -88,12 +94,11 @@ public class ChangementPasswordController implements Initializable {
          LocalDate l = LocalDate.now();
           ActionMetier AA = new ActionMetier();
          User RR = new User();
-         Action A = new Action("Changement de mot de passe", l, 64, RR.getPseudo());
+         Action A = new Action("Changement de mot de passe par mail", l, id, TUser.getText());
          AA.InsertAction(A);
-         Tpass.setText("");
-         TpassC.setText("");
+        
          
-         Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
+          Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
          
         Scene scene = new Scene(root);
         
@@ -105,56 +110,51 @@ public class ChangementPasswordController implements Initializable {
          
          
          
+         
         }
         
     }
     
     
     
+    
+    
+    
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TranslateTransition trPass= new TranslateTransition();
+       TranslateTransition trPass= new TranslateTransition();
         trPass.setDuration(Duration.seconds(2));
-        trPass.setNode(Modifier);
+        trPass.setNode(Valider);
         trPass.setByY(0);
-        trPass.setByX(230);
+        trPass.setByX(300);
         trPass.play();
         
         
-         TranslateTransition Trvalider= new TranslateTransition();
-        Trvalider.setDuration(Duration.seconds(2));
-        Trvalider.setNode(Annuler);
-        Trvalider.setByY(0);
-        Trvalider.setByX(250);
-        Trvalider.play();
         
-      /*   TranslateTransition TrMail= new TranslateTransition();
+         TranslateTransition TrMail= new TranslateTransition();
         TrMail.setDuration(Duration.seconds(2));
         TrMail.setNode(Tpass);
         TrMail.setByY(0);
-        TrMail.setByX(120);
+        TrMail.setByX(200);
         TrMail.play();
         
         TranslateTransition Trcode= new TranslateTransition();
         Trcode.setDuration(Duration.seconds(2));
         Trcode.setNode(TpassC);
         Trcode.setByY(0);
-        Trcode.setByX(120);
+        Trcode.setByX(200);
         Trcode.play();
         
-        TranslateTransition TrViewMail= new TranslateTransition();
-        TrViewMail.setDuration(Duration.seconds(2));
-        TrViewMail.setNode(imagM);
-        TrViewMail.setByY(0);
-        TrViewMail.setByX(100);
-        TrViewMail.play();
-        
-         TranslateTransition TRVIEWPASS= new TranslateTransition();
-        TRVIEWPASS.setDuration(Duration.seconds(2));
-        TRVIEWPASS.setNode(imagP);
-        TRVIEWPASS.setByY(0);
-        TRVIEWPASS.setByX(100);
-        TRVIEWPASS.play();*/
+        TranslateTransition TRuser= new TranslateTransition();
+        TRuser.setDuration(Duration.seconds(2));
+        TRuser.setNode(TUser);
+        TRuser.setByY(0);
+        TRuser.setByX(200);
+        TRuser.play();
     }    
     
 }

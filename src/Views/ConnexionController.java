@@ -105,8 +105,8 @@ public class ConnexionController implements Initializable {
     LocalDate l = LocalDate.now();
           ActionMetier AA = new ActionMetier();
          
-         Action A = new Action("Connexion depuis l'application desktop ", l, R.getId(), R.getPseudo());
-         AA.InsertAction(A);
+         Action A = new Action("Authentification depuis Java Desktop", l, idbase, Username);
+        AA.InsertAction(A);
         
         
         
@@ -126,7 +126,7 @@ public class ConnexionController implements Initializable {
                
            {trayFail.showAndDismiss(Duration.seconds(3));}
            
-           System.out.println(R.getId());
+      
          
              }
     

@@ -91,6 +91,10 @@ public class InscrisController implements Initializable {
         @FXML
     private JFXButton annuler;
         
+        
+            @FXML
+    private JFXButton editpassword;
+        
           FileChooser fileChooser = new FileChooser();
         //FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         //fileChooser.getExtensionFilters().add(extFilter);
@@ -203,6 +207,8 @@ public class InscrisController implements Initializable {
         
     }
     
+     
+    
     
     
       @FXML
@@ -227,16 +233,15 @@ public class InscrisController implements Initializable {
                 file = fileChooser.showOpenDialog(imgP.getScene().getWindow());
 
         if (file != null) {
-            Image img = new Image(file.toURI().toString(), 100, 150, true, true);
+            Image img = new Image(file.toURI().toString(), 200, 250, true, true);
             imgP.setImage(img);
             imgP.setFitWidth(252);
             imgP.setFitHeight(238);
 
-           /* Circle clip = new Circle(imgP.getFitWidth() / 2,
+              Circle clip = new Circle(imgP.getFitWidth() / 2,
                     imgP.getFitHeight() / 2,
-                    85);
-            imgP.setClip(clip);*/
-      
+                    100);
+            imgP.setClip(clip);
         }
    
     }

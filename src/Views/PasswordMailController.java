@@ -114,7 +114,7 @@ public class PasswordMailController implements Initializable {
        String code= Code.getText();
        if (code.equals("2457"))
                {
-                    Parent root = FXMLLoader.load(getClass().getResource("ChangementPassword.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("ChangementPasswordMail.fxml"));
          
         Scene scene = new Scene(root);
         
