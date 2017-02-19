@@ -123,6 +123,9 @@ public class AccueilTesteController implements Initializable {
           Scene scene = new Scene(root);
           stage.setScene(scene);
           stage.show();
+          User R = new User();
+          R.setId(0);
+          R.setPseudo("");
         
      
     }

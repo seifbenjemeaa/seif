@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.SimpleProfilController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.SimpleProfilController">
     <stylesheets>
         <URL value="@simpleprofil.css" />
     </stylesheets>
@@ -44,12 +44,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <JFXButton fx:id="Modification" buttonType="RAISED" layoutX="437.0" layoutY="233.0" onAction="#handleButtonAction" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Edit Profil">
+      <JFXButton fx:id="Modification" buttonType="RAISED" layoutX="472.0" layoutY="234.0" onAction="#handleButtonAction" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Edit Profil">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <ImageView fx:id="imagp" fitHeight="149.0" fitWidth="186.0" layoutX="389.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagp" fitHeight="149.0" fitWidth="186.0" layoutX="424.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="45.0" layoutY="93.0">
          <image>
             <Image url="@Images/user.png" />
@@ -80,7 +80,7 @@
             <Image url="@Images/house.png" />
          </image>
       </ImageView>
-      <Separator layoutX="314.0" layoutY="85.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="1.0" />
+      <Separator layoutX="347.0" layoutY="92.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="1.0" />
       <JFXButton fx:id="editpassword" buttonType="RAISED" layoutX="257.0" layoutY="142.0" onAction="#PAsswordButtonAction" prefHeight="37.0" prefWidth="51.0" text=" " />
       <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="269.0" layoutY="149.0">
          <image>

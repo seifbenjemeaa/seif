@@ -64,7 +64,7 @@ public class ChangementPasswordController implements Initializable {
         boolean vr = true;
         String pass= Tpass.getText();
         String passC= TpassC.getText();
-        if (pass.equals(passC)==false)
+        if (pass.equals(passC)==false || Tpass.getText().equals("") || TpassC.getText().equals(""))
         {
             vr=false;
             

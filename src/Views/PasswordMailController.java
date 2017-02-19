@@ -81,8 +81,8 @@ public class PasswordMailController implements Initializable {
      @FXML
     private void handleButtonAction(ActionEvent event) {
         
-        final String username = "Kristou993@gmail.com";
-		final String password = "Maxo22655274";
+        final String username = "hostandguest4@gmail.com";
+		final String password = "esprit2250";
  
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -101,7 +101,7 @@ public class PasswordMailController implements Initializable {
 		try {
  
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("Kristou993@gmail.com"));
+			message.setFrom(new InternetAddress("hostandguest4@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(Mail.getText()));
 			message.setSubject("Changement mot de passe");
