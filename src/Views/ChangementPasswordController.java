@@ -79,7 +79,7 @@ public class ChangementPasswordController implements Initializable {
         User R1 = new User();
         int id = R1.getId();
         UserMetier R = new UserMetier();
-        R.SetPassword(passC,64);
+        R.SetPassword(passC,id);
           TrayNotification tray = new TrayNotification("Modification Password", "Changement effectué ", NotificationType.SUCCESS);
         
         tray.setAnimationType(AnimationType.SLIDE);
@@ -88,7 +88,7 @@ public class ChangementPasswordController implements Initializable {
          LocalDate l = LocalDate.now();
           ActionMetier AA = new ActionMetier();
          User RR = new User();
-         Action A = new Action("Changement de mot de passe", l, 64, RR.getPseudo());
+         Action A = new Action("Changement de mot de passe", l, RR.getId(), RR.getPseudo());
          AA.InsertAction(A);
          Tpass.setText("");
          TpassC.setText("");

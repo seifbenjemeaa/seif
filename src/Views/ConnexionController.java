@@ -149,6 +149,21 @@ public class ConnexionController implements Initializable {
         app_stage.show();
     
     }
+    
+     @FXML
+    private void Singup(ActionEvent event) throws IOException {
+      
+       Parent root = FXMLLoader.load(getClass().getResource("Inscris.fxml"));
+         
+        Scene scene = new Scene(root);
+        
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();  
+        
+        app_stage.setScene(scene);
+        
+        app_stage.show();
+    
+    }
      
     
     

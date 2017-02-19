@@ -73,7 +73,7 @@ Connection con= ConnexionBase.getInstance();
       e.printStackTrace();
     }
        
-        System.out.println("l'utilisateur "+R.getUsername()+" a été Supprimé de la base de données");
+      
     }
 
     @Override
@@ -343,6 +343,40 @@ Connection con= ConnexionBase.getInstance();
         
         
         return role;
+    }
+
+    @Override
+    public ArrayList<User> ListUsercustom(String username) {
+        User R= new User();
+          String userr;
+          String pass;
+          String nom;
+          String prenom;
+          String adresse;
+          String Email;
+        ArrayList<User> ListR= new ArrayList<>();
+           try
+        {
+             Statement  st=  (Statement) con.createStatement();
+            ResultSet rs;
+ 
+            rs = st.executeQuery("SELECT * FROM user where  nom = '"+username+"' or prenom = '"+username+"' or username = '"+username+"' ");
+            while ( rs.next() ) {
+            userr=rs.getString(2);
+            pass=rs.getString(8);
+            nom=rs.getString(18);
+            prenom=rs.getString(19);
+            adresse= rs.getString(20);
+            Email= rs.getString(4);
+                ListR.add(new User(userr, pass, nom, prenom, adresse,Email));
+            }
+            
+            
+        }
+       catch (Exception e) {
+      e.printStackTrace();
+    }
+       return ListR; 
     }
       
     

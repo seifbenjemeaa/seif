@@ -36,11 +36,16 @@ public class HostAndGuestJava {
         LocalDate l = LocalDate.now();
         Action A = new Action("HELLO", l, 63, "SubZero");
         ActionMetier AA = new ActionMetier();
-        UserMetier RM = new UserMetier();
+        AdminMetier RM = new AdminMetier();
+                UserMetier RMM= new UserMetier();
+                
+        Admin E= new Admin("ADMIN", "ADMIN", "Ahmed", "Kristou", "HOME", "Kristou993@gmail.com");
+        String URL ="file:/C:/Users/Krist/Desktop/628cc12d68dceeb2d25c3f787f18b196.jpg";
+       // RM.InsertUser(E);
+        RMM.SetImage("ADMIN", URL);
     // AA.InsertAction(A);
       // AA.DeleteAction();
-     String S= RM.GetImage("saief");
-     System.out.println(S);
+            
 
 }
 }

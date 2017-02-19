@@ -3,14 +3,14 @@
  */
 
 .mainFxmlClass {
-    -fx-background-image: url("Ahmed.jpg");
+   
 
 }
 #ConnexionPane
 {
     -fx-background-image: url("Images/SKY2.jpg");
 }
-#AnchorPane
+#acc
 {
-    
+    -fx-background-image: url("Images/efel.png");
 }

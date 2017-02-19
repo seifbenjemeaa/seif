@@ -9,8 +9,10 @@ import Entites.Action;
 import Entites.User;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
 
@@ -19,6 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
@@ -35,6 +39,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -88,6 +93,9 @@ public class InscrisController implements Initializable {
 
     @FXML
     private JFXButton editpassword;
+    
+      @FXML
+    private JFXHamburger ham1;
 
     FileChooser fileChooser = new FileChooser();
     //FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
@@ -104,7 +112,7 @@ public class InscrisController implements Initializable {
         String Nom = Tnom.getText();
         String Prenom = Tprenom.getText();
         String Email = tmail.getText();
-        String mail_pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        String mail_pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
         Pattern pat = Pattern.compile(mail_pattern);
         Matcher mat=pat.matcher(Email);
         
@@ -138,7 +146,7 @@ public class InscrisController implements Initializable {
         }
         else if (mat.matches()==false)
         {
-            TrayNotification tray = new TrayNotification("Inscription", "Adresse mail no valide", NotificationType.WARNING);
+            TrayNotification tray = new TrayNotification("Inscription", "Adresse mail non valide", NotificationType.WARNING);
             tray.setAnimationType(AnimationType.POPUP);
 
             tray.showAndDismiss(Duration.seconds(2));
@@ -213,7 +221,25 @@ public class InscrisController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+ HamburgerSlideCloseTransition tr1= new HamburgerSlideCloseTransition(ham1);
+        tr1.setRate(-1);
+        ham1.addEventHandler(MouseEvent.MOUSE_CLICKED, (e)->{
+             
+           try {
+               Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
+               
+               Scene scene = new Scene(root);
+               
+               Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+               
+               app_stage.setScene(scene);
+               
+               app_stage.show();
+           } catch (IOException ex) {
+               Logger.getLogger(PasswordMailController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            
+            });
     }
 
 }

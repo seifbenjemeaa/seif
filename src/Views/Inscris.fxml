@@ -75,5 +75,6 @@
          </image>
       </ImageView>
       <Separator layoutX="269.0" layoutY="123.0" orientation="VERTICAL" prefHeight="200.0" />
+      <JFXHamburger fx:id="ham1" layoutX="543.0" layoutY="27.0" />
    </children>
 </AnchorPane>

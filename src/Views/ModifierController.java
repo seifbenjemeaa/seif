@@ -11,14 +11,24 @@ import Service.ActionMetier;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import tray.notification.NotificationType;
@@ -56,13 +66,18 @@ public class ModifierController implements Initializable {
     @FXML
     private JFXTextField Tnom;
     
+    private File file;
+    
+        @FXML
+    private ImageView imagp;
+    
     
     
     
     
     
      @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private void handleButtonAction(ActionEvent event) throws IOException {
       boolean vr = true;
        String Username=TUser.getText();
         
@@ -92,8 +107,19 @@ public class ModifierController implements Initializable {
           LocalDate l = LocalDate.now();
           ActionMetier AA = new ActionMetier();
          
-         Action A = new Action("Modification de compte", l, 63, "SubZero");
+         Action A = new Action("Modification de compte", l, R.getId(), R.getPseudo());
          AA.InsertAction(A);
+         String s="";
+         boolean vri=true;
+         if (file==null)
+         { vri=false;}
+         if ( vri)
+         {
+         s=file.toURI().toString();
+
+             RM.SetImage(s, R.getPseudo());
+         }
+         
          
           TUser.setText("");
         
@@ -112,6 +138,16 @@ public class ModifierController implements Initializable {
         trayfail.showAndDismiss(Duration.seconds(2));
           
             }
+            
+              Parent root = FXMLLoader.load(getClass().getResource("AccueilTeste.fxml"));
+         
+        Scene scene = new Scene(root);
+        
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();  
+        
+        app_stage.setScene(scene);
+        
+        app_stage.show();
         
     }
     
@@ -125,6 +161,26 @@ public class ModifierController implements Initializable {
        Temail.setText("");
     }
     
+    @FXML
+    private void uploadImage() {
+            FileChooser fileChooser = new FileChooser();
+
+        file = fileChooser.showOpenDialog(imagp.getScene().getWindow());
+
+        if (file != null) {
+            Image img = new Image(file.toURI().toString(), 200, 250, true, true);
+            imagp.setImage(img);
+            imagp.setFitWidth(252);
+            imagp.setFitHeight(238);
+
+            Circle clip = new Circle(imagp.getFitWidth() / 2,
+                    imagp.getFitHeight() / 2,
+                    80);
+            imagp.setClip(clip);
+        }
+
+    }
+    
     
     
     @Override
@@ -133,7 +189,7 @@ public class ModifierController implements Initializable {
         int id= R.getId();
         
         UserMetier RM = new UserMetier();
-       R= RM.GetUser(63);
+       R= RM.GetUser(id);
        TUser.setText(R.getUsername());
        Tadresse.setText(R.getAdresse());
        Tnom.setText(R.getNom());
