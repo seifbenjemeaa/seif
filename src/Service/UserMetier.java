@@ -318,6 +318,32 @@ Connection con= ConnexionBase.getInstance();
         
         return image;
     }
+
+    @Override
+    public String GetRole(String username) {
+        
+        
+         String role="";
+           try
+        {
+             Statement  st=  (Statement) con.createStatement();
+            ResultSet rs;
+ 
+            rs = st.executeQuery("SELECT roles FROM user WHERE username = '"+username+"'");
+             while ( rs.next() ) {
+            role=rs.getString(1);
+     
+     }
+            
+            
+        }
+       catch (Exception e) {
+      e.printStackTrace();
+    }
+        
+        
+        return role;
+    }
       
     
 

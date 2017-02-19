@@ -27,6 +27,7 @@ public User GetUser (int id);
 public void SetPassword ( String password,int id);
     public void SetImage(String s,String Username);
      public String GetImage(String Username);
+     public String GetRole (String username);
     
     
 }
