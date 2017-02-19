@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Views.AccueilTesteController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.AccueilTesteController">
    <children>
-      <Label fx:id="L1" layoutX="189.0" layoutY="50.0" text="Label" />
+      <Label fx:id="L1" layoutX="218.0" layoutY="260.0" text="Label" />
+      <ImageView fx:id="photo" fitHeight="150.0" fitWidth="200.0" layoutX="393.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="user" layoutX="493.0" layoutY="159.0" text="Username" />
    </children>
 </AnchorPane>

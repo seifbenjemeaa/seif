@@ -106,7 +106,7 @@ public class SimpleProfilController implements Initializable {
         int id= R.getId();
         
         UserMetier RM = new UserMetier();
-       R= RM.GetUser(67);
+       R= RM.GetUser(75);
        Luser.setText(R.getUsername());
        Ladresse.setText(R.getAdresse());
        Lnom.setText(R.getNom());
@@ -114,16 +114,16 @@ public class SimpleProfilController implements Initializable {
        Lpass.setText(R.getPassword());
        Lemail.setText(R.getEmail());
       
-       String S= RM.GetImage("saief");
+       String S= RM.GetImage("Noctis");
      System.out.println(S);
         Image img = new Image(S, 200, 250, true, true);
          
     
        imagp.setImage(img);
-        Circle clip = new Circle(imagp.getFitWidth() / 2,
+      /*  Circle clip = new Circle(imagp.getFitWidth() / 2,
                     imagp.getFitHeight() / 2,
                     85);
-            imagp.setClip(clip);
+            imagp.setClip(clip);*/
        
         TranslateTransition trPass= new TranslateTransition();
         trPass.setDuration(Duration.seconds(2));

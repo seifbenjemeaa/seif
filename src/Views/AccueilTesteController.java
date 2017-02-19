@@ -6,6 +6,7 @@
 package Views;
 
 import Entites.User;
+import Service.UserMetier;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -34,6 +38,12 @@ public class AccueilTesteController implements Initializable {
       @FXML
     private Label L1;
       
+         @FXML
+    private ImageView photo;
+
+    @FXML
+    private Label user;
+      
       
        @FXML
     private void SwitchButtonAction(ActionEvent event) throws IOException {
@@ -48,6 +58,16 @@ public class AccueilTesteController implements Initializable {
         User R = new User();
       String CH="VOUS ETES CONNECTE EN TANT "+R.getPseudo()+"";
     L1.setText(CH);
+    UserMetier RR = new UserMetier();
+    String path = RR.GetImage(R.getPseudo());
+    Image img = new Image(path, 200, 250, true, true);
+          Circle clip = new Circle(photo.getFitWidth() / 2,
+                    photo.getFitHeight() / 2,
+                    85);
+            photo.setClip(clip);
+    
+       photo.setImage(img);
+       user.setText(R.getPseudo());
     }    
     
 }
