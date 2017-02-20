@@ -18,6 +18,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.util.Duration;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -39,13 +41,16 @@ public class HostAndGuestJava {
         AdminMetier RM = new AdminMetier();
                 UserMetier RMM= new UserMetier();
                 
-        Admin E= new Admin("ADMIN", "ADMIN", "Ahmed", "Kristou", "HOME", "Kristou993@gmail.com");
-        String URL ="file:/C:/Users/Krist/Desktop/628cc12d68dceeb2d25c3f787f18b196.jpg";
+        //Admin E= new Admin("ADMIN", "ADMIN", "Ahmed", "Kristou", "HOME", "Kristou993@gmail.com");
+       // String URL ="file:/C:/Users/Krist/Desktop/628cc12d68dceeb2d25c3f787f18b196.jpg";
        // RM.InsertUser(E);
-        RMM.SetImage("ADMIN", URL);
+      //  RMM.SetImage("ADMIN", URL);
     // AA.InsertAction(A);
       // AA.DeleteAction();
             
+       String mail_pattern="^[_a-z0-9-]+(\\\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\\\.[a-z0-9-]+)+$";
+        Pattern pat = Pattern.compile(mail_pattern);
+        Matcher mat=pat.matcher("ahmed.kristou@esprit.tn");
 
 }
 }

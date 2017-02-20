@@ -10,6 +10,7 @@ import Entites.User;
 import Service.ActionMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -67,6 +69,9 @@ public class NotificationsController implements Initializable {
     
       @FXML
     private JFXHamburger ham1;
+      
+          @FXML
+    private JFXTextField search;
     
     
      @FXML
@@ -92,6 +97,30 @@ public class NotificationsController implements Initializable {
         table.setItems(lst);
         
     
+    }
+    
+     @FXML
+    private void searchButtonAction(KeyEvent event) {
+        String s= search.getText();
+        ActionMetier A= new ActionMetier();
+        
+        ArrayList<Action>LST = A.ListActionCustom(s);
+                
+     
+    
+        ObservableList<Action> lst = FXCollections.observableArrayList();
+        for ( int i=0;i<LST.size();i++)
+        {  lst.add(LST.get(i));
+              }
+        
+         
+        id_u.setCellValueFactory(new PropertyValueFactory<Action,Integer>("id_User"));
+        desc.setCellValueFactory(new PropertyValueFactory<Action,String>("Description"));
+        username.setCellValueFactory(new PropertyValueFactory<Action,String>("UserName"));
+        date.setCellValueFactory(new PropertyValueFactory<Action,LocalDate>("dateAction"));
+       
+        table.setItems(lst);
+        
     }
     
     

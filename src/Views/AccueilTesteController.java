@@ -196,14 +196,14 @@ public class AccueilTesteController implements Initializable {
         
        
          TranslateTransition TRViewpass= new TranslateTransition();
-        TRViewpass.setDuration(Duration.seconds(1.5));
+        TRViewpass.setDuration(Duration.seconds(2));
         TRViewpass.setNode(annonce);
         TRViewpass.setByY(0);
         TRViewpass.setByX(20);
         TRViewpass.play();
         
            TranslateTransition TProfil= new TranslateTransition();
-        TProfil.setDuration(Duration.seconds(1.5));
+        TProfil.setDuration(Duration.seconds(2));
         TProfil.setNode(reclam);
         TProfil.setByY(0);
         TProfil.setByX(20);
@@ -211,21 +211,21 @@ public class AccueilTesteController implements Initializable {
         
         
            TranslateTransition T3= new TranslateTransition();
-        T3.setDuration(Duration.seconds(1.5));
+        T3.setDuration(Duration.seconds(2));
         T3.setNode(reclam);
         T3.setByY(0);
         T3.setByX(20);
         T3.play();
         
           TranslateTransition T4= new TranslateTransition();
-        T4.setDuration(Duration.seconds(1.5));
+        T4.setDuration(Duration.seconds(2));
         T4.setNode(annonce2);
         T4.setByY(0);
         T4.setByX(20);
         T4.play();
         
           TranslateTransition T5= new TranslateTransition();
-        T5.setDuration(Duration.seconds(1.5));
+        T5.setDuration(Duration.seconds(2));
         T5.setNode(notif);
         T5.setByY(0);
         T5.setByX(20);
@@ -233,7 +233,7 @@ public class AccueilTesteController implements Initializable {
         
         
          TranslateTransition T6= new TranslateTransition();
-        T6.setDuration(Duration.seconds(1));
+        T6.setDuration(Duration.seconds(2));
         T6.setNode(gestion);
         T6.setByY(0);
         T6.setByX(20);

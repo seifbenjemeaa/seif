@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="acc" fx:id="accueil" prefHeight="601.0" prefWidth="800.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.AccueilTesteController">
+<AnchorPane id="acc" fx:id="accueil" prefHeight="600.0" prefWidth="800.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.AccueilTesteController">
    <children>
       <Label fx:id="L1" layoutX="7.0" layoutY="26.0" lineSpacing="5.0" text="label" wrapText="true">
          <font>
@@ -20,13 +20,12 @@
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
                   <Stop color="#14cce4" />
-                  <Stop color="#0519f8" offset="1.0" />
+                  <Stop color="#f72707" offset="1.0" />
                </stops>
             </RadialGradient>
          </textFill></Label>
-      <VBox fx:id="Vbox" layoutY="3.0" prefHeight="512.0" prefWidth="135.0" spacing="20.0" style="-fx-background-color: transparent;">
+      <VBox fx:id="Vbox" layoutX="1.0" layoutY="110.0" prefHeight="512.0" prefWidth="135.0" spacing="20.0" style="-fx-background-color: ;">
          <children>
-            <ImageView fx:id="photo" fitHeight="96.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" />
             <JFXButton buttonType="RAISED" onAction="#Sortir" prefHeight="28.0" prefWidth="88.0" ripplerFill="#322d68" style="-fx-background-color: orange;" text="Déconnexion" textFill="#322d68">
                <font>
                   <Font size="11.0" />
@@ -60,7 +59,8 @@
             </JFXButton>
          </children>
       </VBox>
-      <JFXButton fx:id="profil" buttonType="RAISED" layoutX="7.0" layoutY="10.0" onAction="#SwitchButtonAction" prefHeight="58.0" prefWidth="113.0" ripplerFill="#322d68" style="-fx-background-color: transparant;" text=" ">
+      <ImageView fx:id="photo" fitHeight="96.0" fitWidth="104.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="profil" buttonType="RAISED" layoutX="1.0" layoutY="16.0" onAction="#SwitchButtonAction" opacity="0.5" prefHeight="58.0" prefWidth="113.0" ripplerFill="#322d68" style="-fx-background-color: transparant;" text=" ">
          <font>
             <Font size="13.0" />
          </font>

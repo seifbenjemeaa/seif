@@ -378,6 +378,31 @@ Connection con= ConnexionBase.getInstance();
     }
        return ListR; 
     }
+
+    @Override
+    public String GetMail(String username) {
+        
+         String email="";
+           try
+        {
+             Statement  st=  (Statement) con.createStatement();
+            ResultSet rs;
+ 
+            rs = st.executeQuery("SELECT email FROM user WHERE username = '"+username+"'");
+             while ( rs.next() ) {
+            email=rs.getString(1);
+     
+     }
+            
+            
+        }
+       catch (Exception e) {
+      e.printStackTrace();
+    }
+        
+        
+        return email;
+    }
       
     
 

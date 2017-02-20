@@ -8,9 +8,13 @@ package Views;
 import Entites.User;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -67,6 +72,9 @@ public class SimpleProfilController implements Initializable {
     
           @FXML
     private JFXButton editpassword;
+          
+              @FXML
+    private JFXHamburger ham1;
     
         
          @FXML
@@ -125,6 +133,26 @@ public class SimpleProfilController implements Initializable {
                     85);
             imagp.setClip(clip);*/
        
+       HamburgerSlideCloseTransition tr1= new HamburgerSlideCloseTransition(ham1);
+        tr1.setRate(-1);
+        ham1.addEventHandler(MouseEvent.MOUSE_CLICKED, (e)->{
+             
+           try {
+               Parent root = FXMLLoader.load(getClass().getResource("AccueilTeste.fxml"));
+               
+               Scene scene = new Scene(root);
+               
+               Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+               
+               app_stage.setScene(scene);
+               
+               app_stage.show();
+           } catch (IOException ex) {
+               Logger.getLogger(PasswordMailController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            
+            });
+      
         TranslateTransition trPass= new TranslateTransition();
         trPass.setDuration(Duration.seconds(2));
         trPass.setNode(profil);

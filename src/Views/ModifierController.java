@@ -10,12 +10,16 @@ import Entites.User;
 import Service.ActionMetier;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +30,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -71,6 +76,8 @@ public class ModifierController implements Initializable {
         @FXML
     private ImageView imagp;
     
+            @FXML
+    private JFXHamburger ham1;
     
     
     
@@ -196,6 +203,28 @@ public class ModifierController implements Initializable {
        Tprenom.setText(R.getPrenom());
       
        Temail.setText(R.getEmail());
+       
+       HamburgerSlideCloseTransition tr1= new HamburgerSlideCloseTransition(ham1);
+        tr1.setRate(-1);
+        ham1.addEventHandler(MouseEvent.MOUSE_CLICKED, (e)->{
+             
+           try {
+               Parent root = FXMLLoader.load(getClass().getResource("AccueilTeste.fxml"));
+               
+               Scene scene = new Scene(root);
+               
+               Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+               
+               app_stage.setScene(scene);
+               
+               app_stage.show();
+           } catch (IOException ex) {
+               Logger.getLogger(PasswordMailController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            
+            });
+      
+       
     }    
     
 }

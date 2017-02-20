@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="Profil" prefHeight="551.0" prefWidth="700.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.ProfilController">
+<AnchorPane id="Profil" prefHeight="600.0" prefWidth="800.0" stylesheets="@simpleprofil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.ProfilController">
    <children>
-      <TableView fx:id="table" prefHeight="438.0" prefWidth="568.0" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="table" prefHeight="505.0" prefWidth="709.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="91.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="Username" prefWidth="75.0" text="UserName" />
           <TableColumn fx:id="password" prefWidth="75.0" text="Password" />
@@ -21,12 +21,15 @@
             <TableColumn fx:id="Email" prefWidth="198.0" text="Email" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="412.0" layoutY="462.0" onAction="#DeleteButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Supprimer">
+      <JFXButton buttonType="RAISED" layoutX="668.0" layoutY="530.0" onAction="#DeleteButtonAction" prefHeight="41.0" prefWidth="100.0" ripplerFill="#e8e3e3" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Supprimer">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="search" labelFloat="true" layoutX="38.0" layoutY="470.0" onKeyPressed="#Recherche" promptText="Search" />
-      <JFXHamburger fx:id="ham1" layoutX="649.0" layoutY="22.0" />
+      <JFXTextField fx:id="search" labelFloat="true" layoutX="35.0" layoutY="518.0" onKeyTyped="#Recherche" promptText="Search">
+         <font>
+            <Font size="16.0" />
+         </font></JFXTextField>
+      <JFXHamburger fx:id="ham1" layoutX="738.0" layoutY="14.0" />
    </children>
 </AnchorPane>

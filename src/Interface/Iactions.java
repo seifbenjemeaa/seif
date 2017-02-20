@@ -18,4 +18,5 @@ public interface Iactions {
     public void InsertAction(Action A);
     public void DeleteAction();
     public ArrayList<Action> ListAction(); 
+    public ArrayList<Action> ListActionCustom(String Username); 
 }

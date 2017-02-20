@@ -10,11 +10,15 @@ import Entites.User;
 import Service.ActionMetier;
 import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +28,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -57,6 +62,9 @@ public class ChangementPasswordController implements Initializable {
        
           @FXML
     private ImageView imagP;
+          
+           @FXML
+    private JFXHamburger ham1;
     
     
      @FXML
@@ -113,6 +121,29 @@ public class ChangementPasswordController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        HamburgerSlideCloseTransition tr1= new HamburgerSlideCloseTransition(ham1);
+        tr1.setRate(-1);
+        ham1.addEventHandler(MouseEvent.MOUSE_CLICKED, (e)->{
+             
+           try {
+               Parent root = FXMLLoader.load(getClass().getResource("AccueilTeste.fxml"));
+               
+               Scene scene = new Scene(root);
+               
+               Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+               
+               app_stage.setScene(scene);
+               
+               app_stage.show();
+           } catch (IOException ex) {
+               Logger.getLogger(PasswordMailController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            
+            });
+        
+        
+        
         TranslateTransition trPass= new TranslateTransition();
         trPass.setDuration(Duration.seconds(2));
         trPass.setNode(Modifier);

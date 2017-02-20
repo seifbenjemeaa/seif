@@ -10,6 +10,7 @@ import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXTextField;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -38,6 +39,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
 import org.controlsfx.control.Notifications;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -84,6 +90,8 @@ public class ProfilController implements Initializable {
             
                 @FXML
     private JFXHamburger ham1;
+                
+      
     
     
      @FXML
@@ -159,6 +167,53 @@ public class ProfilController implements Initializable {
     }
     
     
+    /*public void Excel(ObservableList<User> Adh)  throws IOException, WriteException {
+       try {
+        String filename = "‪C:\\Users\\Krist\\Desktop\\ahmed.xls";
+        WritableWorkbook workbook = Workbook.createWorkbook(new File(filename));
+        WritableSheet sheet = workbook.createSheet("Sheet1",0);
+        
+        
+        Label Username = new Label (0,0,"Username");
+        sheet.addCell(Username);
+        Label nom = new Label (1,0,"nom");
+        sheet.addCell(nom);
+        
+        Label prenom = new Label (2,0,"Prenom");
+        sheet.addCell(prenom);
+        Label Adresse = new Label (4,0,"Adresse");
+        sheet.addCell(Adresse);
+        Label Email = new Label (5,0,"Mail");
+        sheet.addCell(Email);
+     
+       
+       
+        for(int i=0; i<Adh.size();i++)
+        {
+            
+            Label username = new Label (0,i+1,Adh.get(i).getUsername());
+        sheet.addCell(username);
+        Label noma = new Label (1,i+1,Adh.get(i).getNom());
+        sheet.addCell(noma);
+        Label prenomA = new Label (3,i+1,Adh.get(i).getPrenom());
+        sheet.addCell(prenomA);
+            Label adressea = new Label (4,i+1,Adh.get(i).getAdresse());
+        sheet.addCell(adressea);
+        Label mailA = new Label (4,i+1,Adh.get(i).getEmail());
+        sheet.addCell(mailA);
+       
+        }
+        
+        
+        workbook.write();
+        workbook.close();
+       } catch (WriteException e) { 
+           System.out.println("faux");
+    }
+    }*/
+    
+    
+    
        @FXML
     private void Recherche(KeyEvent event) {
         String s=search.getText();
@@ -190,7 +245,7 @@ public class ProfilController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     System.out.println("Hello there");
+    
      
       UserMetier RM = new UserMetier();
      ArrayList<User>LST = RM.ListUser();

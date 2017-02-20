@@ -29,6 +29,7 @@ public void SetPassword ( String password,int id);
      public String GetImage(String Username);
      public String GetRole (String username);
       public ArrayList<User> ListUsercustom(String username);
+      public String GetMail(String username);
     
     
 }

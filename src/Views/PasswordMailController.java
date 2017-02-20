@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Service.UserMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXNodesList;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
@@ -26,6 +28,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -67,6 +70,9 @@ public class PasswordMailController implements Initializable {
     
       @FXML
     private ImageView imaM;
+      
+    @FXML
+    private JFXTextField username;
 
    
 
@@ -76,6 +82,9 @@ public class PasswordMailController implements Initializable {
     
        @FXML
     private JFXHamburger ham1;
+    private    int randomNum = ThreadLocalRandom.current().nextInt(100000, 999999 + 1);
+    private String CodeValidation=Integer.toString(randomNum);
+    
     
     
      @FXML
@@ -105,7 +114,7 @@ public class PasswordMailController implements Initializable {
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(Mail.getText()));
 			message.setSubject("Changement mot de passe");
-			message.setText("Votre code est 2457");
+			message.setText("votre code est  "+CodeValidation);
  
 			Transport.send(message);
  
@@ -116,6 +125,8 @@ public class PasswordMailController implements Initializable {
       throw new RuntimeException(e);}
                 
                 Mail.setText("");
+                this.username.setText("");
+                
                 
                   TrayNotification trayfail = new TrayNotification("Email", "Un code a été envoyé a votre adresse mail", NotificationType.INFORMATION);
                        trayfail.setAnimationType(AnimationType.SLIDE);
@@ -124,11 +135,21 @@ public class PasswordMailController implements Initializable {
         trayfail.showAndDismiss(Duration.seconds(3));
                 
 		}
+    @FXML
+     private void Mail(KeyEvent event) throws IOException {
+         String UserName=username.getText();
+         UserMetier rr= new UserMetier();
+        String mail= rr.GetMail(UserName);
+        Mail.setText(mail);
+     }
+    
+    
+    
         
           @FXML
     private void CodeButtonAction(ActionEvent event) throws IOException {
        String code= Code.getText();
-       if (code.equals("2457"))
+       if (code.equals(CodeValidation))
                {
                     Parent root = FXMLLoader.load(getClass().getResource("ChangementPasswordMail.fxml"));
          
@@ -219,7 +240,7 @@ public class PasswordMailController implements Initializable {
             
             });
         
-        
+      
     }    
     
 }

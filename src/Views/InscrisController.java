@@ -112,9 +112,7 @@ public class InscrisController implements Initializable {
         String Nom = Tnom.getText();
         String Prenom = Tprenom.getText();
         String Email = tmail.getText();
-        String mail_pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
-        Pattern pat = Pattern.compile(mail_pattern);
-        Matcher mat=pat.matcher(Email);
+      
         
         
 
@@ -144,7 +142,7 @@ public class InscrisController implements Initializable {
             tray.showAndDismiss(Duration.seconds(2));
             vr = false;
         }
-        else if (mat.matches()==false)
+        else if (Mail_valide()==false)
         {
             TrayNotification tray = new TrayNotification("Inscription", "Adresse mail non valide", NotificationType.WARNING);
             tray.setAnimationType(AnimationType.POPUP);
@@ -218,6 +216,16 @@ public class InscrisController implements Initializable {
         }
 
     }
+    public boolean Mail_valide()
+    {
+        String email = tmail.getText();
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+           java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+           java.util.regex.Matcher m = p.matcher(email);
+        return(m.matches());
+    }
+    
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
