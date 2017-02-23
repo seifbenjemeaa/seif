@@ -114,7 +114,7 @@ public class SimpleProfilController implements Initializable {
         int id= R.getId();
         
         UserMetier RM = new UserMetier();
-       R= RM.GetUser(75);
+       R= RM.GetUser(id);
        Luser.setText(R.getUsername());
        Ladresse.setText(R.getAdresse());
        Lnom.setText(R.getNom());
@@ -122,7 +122,7 @@ public class SimpleProfilController implements Initializable {
        Lpass.setText(R.getPassword());
        Lemail.setText(R.getEmail());
       
-       String S= RM.GetImage("Noctis");
+       String S= RM.GetImage(R.getPseudo());
      System.out.println(S);
         Image img = new Image(S, 200, 250, true, true);
          

@@ -73,6 +73,8 @@ public class PasswordMailController implements Initializable {
       
     @FXML
     private JFXTextField username;
+        @FXML
+    private ImageView usem;
 
    
 
@@ -92,6 +94,7 @@ public class PasswordMailController implements Initializable {
         
         final String username = "hostandguest4@gmail.com";
 		final String password = "esprit2250";
+                 boolean vr=true;
  
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -121,18 +124,27 @@ public class PasswordMailController implements Initializable {
 			System.out.println("message sent successfully");
       }
       catch (MessagingException e) {
-          System.out.println("message not sent");
-      throw new RuntimeException(e);}
+          TrayNotification trayfail = new TrayNotification("Email", "Veuillez saisir votre Username", NotificationType.WARNING);
+                       trayfail.setAnimationType(AnimationType.POPUP
+                               
+                       );
+                                 trayfail.showAndDismiss(Duration.seconds(3));
+                                 vr=false;
+      }
                 
                 Mail.setText("");
                 this.username.setText("");
+               
+              
+                if ( vr)
+                {
                 
                 
                   TrayNotification trayfail = new TrayNotification("Email", "Un code a été envoyé a votre adresse mail", NotificationType.INFORMATION);
                        trayfail.setAnimationType(AnimationType.SLIDE);
 
    
-        trayfail.showAndDismiss(Duration.seconds(3));
+        trayfail.showAndDismiss(Duration.seconds(3));}
                 
 		}
     @FXML
@@ -206,6 +218,20 @@ public class PasswordMailController implements Initializable {
         Trcode.setByY(0);
         Trcode.setByX(120);
         Trcode.play();
+         TranslateTransition truser= new TranslateTransition();
+        truser.setDuration(Duration.seconds(2));
+        truser.setNode(username);
+        truser.setByY(0);
+        truser.setByX(120);
+        truser.play();
+        
+         TranslateTransition TM= new TranslateTransition();
+        TM.setDuration(Duration.seconds(2));
+        TM.setNode(usem);
+        TM.setByY(0);
+        TM.setByX(120);
+        TM.play();
+        
         
         TranslateTransition TrViewMail= new TranslateTransition();
         TrViewMail.setDuration(Duration.seconds(2));

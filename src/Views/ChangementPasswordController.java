@@ -116,6 +116,12 @@ public class ChangementPasswordController implements Initializable {
         }
         
     }
+     @FXML
+    private void ResetButtonAction(ActionEvent event) throws IOException {
+        Tpass.setText("");
+        TpassC.setText("");
+        
+    }
     
     
     

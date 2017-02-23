@@ -34,7 +34,7 @@
          </font>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="247.0" onAction="#uploadImage" prefHeight="75.0" prefWidth="122.0" text="Upload image" textFill="#ebe9e9" />
-      <ImageView fx:id="imgP" fitHeight="122.0" fitWidth="149.0" layoutX="293.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgP" fitHeight="122.0" fitWidth="149.0" layoutX="336.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="32.0" layoutY="103.0">
          <image>
             <Image url="@Images/user.png" />
