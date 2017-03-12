@@ -30,7 +30,7 @@ Connection con= ConnexionBase.getInstance();
         {
         Statement  st=  (Statement) con.createStatement();
    
-      st.executeUpdate("INSERT INTO actions (id_user,description,date,username) " + 
+      st.executeUpdate("INSERT INTO actions (user_id,description,date,username) " + 
                 "VALUES ("+A.getId_User()+", '"+A.getDescription()+"','"+A.getDateAction()+"','"+A.getUserName()+"')");
          }
        catch (Exception e) {

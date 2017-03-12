@@ -149,9 +149,9 @@ Connection con= ConnexionBase.getInstance();
             while ( rs.next() ) {
             username=rs.getString(2);
             pass=rs.getString(8);
-            nom=rs.getString(18);
-            prenom=rs.getString(19);
-            adresse= rs.getString(20);
+            nom=rs.getString(13);
+            prenom=rs.getString(14);
+            adresse= rs.getString(15);
             Email= rs.getString(4);
                 ListR.add(new User(username, pass, nom, prenom, adresse,Email));
             }
@@ -237,9 +237,9 @@ Connection con= ConnexionBase.getInstance();
             while ( rs.next() ) {
             username=rs.getString(2);
             pass=rs.getString(8);
-            nom=rs.getString(18);
-            prenom=rs.getString(19);
-            adresse= rs.getString(20);
+            nom=rs.getString(13);
+            prenom=rs.getString(14);
+            adresse= rs.getString(15);
             Email= rs.getString(4);
                R.setUsername(username); 
                R.setEmail(Email);
