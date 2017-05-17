@@ -48,9 +48,7 @@ public class HostAndGuestJava {
     // AA.InsertAction(A);
       // AA.DeleteAction();
             
-       String mail_pattern="^[_a-z0-9-]+(\\\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\\\.[a-z0-9-]+)+$";
-        Pattern pat = Pattern.compile(mail_pattern);
-        Matcher mat=pat.matcher("ahmed.kristou@esprit.tn");
+     String ch = "ll";
 
 }
 }
